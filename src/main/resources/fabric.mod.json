@@ -1,0 +1,30 @@
+{
+	"schemaVersion": 1,
+	"id": "miniproxy",
+	"version": "${version}",
+	"name": "MiniProxy",
+	"description": "Routes server connections through a configurable SOCKS5 proxy.",
+	"authors": [
+		"cbwln"
+	],
+	"contact": {
+		"homepage": "https://miniproxy.cbwln.com/",
+		"sources": "https://github.com/cbwln/miniproxy"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/miniproxy/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.cbwln.miniproxy.MiniProxy"
+		]
+	},
+	"mixins": [
+		"miniproxy.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.1.2",
+		"java": ">=25"
+	}
+}
