@@ -14,8 +14,8 @@ dependencies {
 	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Bundled into the mod jar; provides Socks5ProxyHandler.
-	include implementation("io.netty:netty-handler-proxy:4.2.7.Final")
-	include implementation("io.netty:netty-codec-socks:4.2.7.Final")
+	include implementation("io.netty:netty-handler-proxy:4.2.15.Final")
+	include implementation("io.netty:netty-codec-socks:4.2.15.Final")
 }
 
 processResources {

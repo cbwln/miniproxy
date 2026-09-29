@@ -38,7 +38,7 @@ public abstract class JoinMultiplayerScreenMixin extends Screen {
     @Inject(method = "init()V", at = @At("TAIL"))
     private void miniproxy$addButton(CallbackInfo info) {
         miniproxy$button = addRenderableWidget(Button.builder(Component.empty(),
-                button -> minecraft.setScreen(new ProxyListScreen(this, this::refreshServerList)))
+                button -> minecraft.gui.setScreen(new ProxyListScreen(this, this::refreshServerList)))
                 .bounds(0, MINIPROXY_MARGIN, MINIPROXY_MAX_WIDTH, 20)
                 .build());
         miniproxy$updateButton();

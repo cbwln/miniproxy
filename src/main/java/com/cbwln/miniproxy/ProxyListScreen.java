@@ -81,7 +81,7 @@ public class ProxyListScreen extends Screen {
     @Override
     public void onClose() {
         if (minecraft != null) {
-            minecraft.setScreen(parent);
+            minecraft.gui.setScreen(parent);
         }
         if (onDone != null) {
             onDone.run();
@@ -136,7 +136,7 @@ public class ProxyListScreen extends Screen {
     }
 
     private void addProxy() {
-        minecraft.setScreen(new ProxyEditScreen(this, null, created -> {
+        minecraft.gui.setScreen(new ProxyEditScreen(this, null, created -> {
             ProxyConfig.get().add(created);
             list.reload(created.id);
         }));
@@ -147,7 +147,7 @@ public class ProxyListScreen extends Screen {
         if (entry == null || entry.profile == null) {
             return;
         }
-        minecraft.setScreen(new ProxyEditScreen(this, entry.profile, edited -> {
+        minecraft.gui.setScreen(new ProxyEditScreen(this, entry.profile, edited -> {
             ProxyConfig.get().replace(edited);
             list.reload(edited.id);
         }));
@@ -163,12 +163,12 @@ public class ProxyListScreen extends Screen {
         String message = "\"" + target.label() + "\" will be removed."
                 + (inUse ? " It is the proxy in use, so connections will go direct afterwards." : "");
 
-        minecraft.setScreen(new ConfirmScreen(confirmed -> {
+        minecraft.gui.setScreen(new ConfirmScreen(confirmed -> {
             if (confirmed) {
                 ProxyConfig.get().remove(target);
                 list.reload(currentSelectedId());
             }
-            minecraft.setScreen(this);
+            minecraft.gui.setScreen(this);
         }, Component.literal("Delete this proxy?"), Component.literal(message)));
     }
 

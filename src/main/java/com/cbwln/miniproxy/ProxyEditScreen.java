@@ -124,12 +124,12 @@ class ProxyEditScreen extends Screen {
         String id = original == null ? UUID.randomUUID().toString() : original.id;
         onSave.accept(new ProxyProfile(id, name.strip(), host.strip(), parsed.getAsInt(), username.strip(),
                 password.strip()));
-        minecraft.setScreen(parent);
+        minecraft.gui.setScreen(parent);
     }
 
     @Override
     public void onClose() {
-        minecraft.setScreen(parent);
+        minecraft.gui.setScreen(parent);
     }
 
     @Override
